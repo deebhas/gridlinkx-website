@@ -5,7 +5,8 @@ import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import { sendInvestorNotification } from "./emailService";
 
-const ADMIN_TOKEN = process.env.ADMIN_TOKEN || 'your-secure-admin-token';
+// Remove the fallback value to ensure we only use the environment variable
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN;
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -41,6 +42,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Admin endpoint to view submissions
   app.get("/api/admin/submissions", async (req, res) => {
     const authToken = req.headers.authorization?.split(' ')[1];
+
+    if (!ADMIN_TOKEN) {
+      console.error("ADMIN_TOKEN environment variable is not set");
+      return res.status(500).json({
+        success: false,
+        message: "Server configuration error"
+      });
+    }
 
     if (!authToken || authToken !== ADMIN_TOKEN) {
       return res.status(401).json({ 
