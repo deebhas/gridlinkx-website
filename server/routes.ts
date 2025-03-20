@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import { sendInvestorNotification } from "./emailService";
 
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || 'your-secure-admin-token';
 
@@ -12,6 +13,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactSchema.parse(req.body);
       const submission = await storage.createContactSubmission(validatedData);
+
+      // Send email notification if it's an investor inquiry
+      if (validatedData.interest.toLowerCase().includes('investor')) {
+        await sendInvestorNotification(submission);
+      }
+
       res.json({ success: true, data: submission });
     } catch (error: any) {
       if (error.name === "ZodError") {
