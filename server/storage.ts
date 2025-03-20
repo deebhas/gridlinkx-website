@@ -1,11 +1,7 @@
 import { drizzle } from "drizzle-orm/neon-serverless";
-import { neon } from '@neondatabase/serverless';
 import { eq } from 'drizzle-orm';
 import { users, contactSubmissions, type User, type InsertUser, type ContactSubmission, type InsertContact } from "@shared/schema";
-
-// Initialize the database client
-const sql = neon(process.env.DATABASE_URL!);
-const db = drizzle(sql);
+import { db } from './db';
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
