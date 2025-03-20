@@ -13,6 +13,9 @@ services:
         fromDatabase:
           name: gridlinkx-db
           property: connectionString
+    # Run database setup after the build
+    postBuild:
+      - command: node scripts/setup-db.js
 
 databases:
   - name: gridlinkx-db
