@@ -1,5 +1,4 @@
 name = "gridlinkx-website"
-main = "dist/index.js"
 compatibility_date = "2024-03-20"
 
 [build]
@@ -7,7 +6,5 @@ command = "npm run build"
 cwd = "/"
 watch_dir = "dist/public"
 
-[build.upload]
-format = "service-worker"
-dir = "dist/public"
-main = "../index.js"
+[site]
+bucket = "./dist/public"
