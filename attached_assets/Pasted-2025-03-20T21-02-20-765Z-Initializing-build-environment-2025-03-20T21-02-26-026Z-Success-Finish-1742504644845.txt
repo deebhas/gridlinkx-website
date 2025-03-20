@@ -1,0 +1,60 @@
+2025-03-20T21:02:20.765Z	Initializing build environment...
+2025-03-20T21:02:26.026Z	Success: Finished initializing build environment
+2025-03-20T21:02:26.177Z	Cloning repository...
+2025-03-20T21:02:27.074Z	Detected the following tools from environment: npm@10.8.3, nodejs@22.9.0
+2025-03-20T21:02:27.075Z	Installing project dependencies: npm clean-install --progress=false
+2025-03-20T21:02:31.530Z	npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2025-03-20T21:02:31.539Z	npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2025-03-20T21:02:34.763Z	
+2025-03-20T21:02:34.763Z	added 477 packages, and audited 478 packages in 7s
+2025-03-20T21:02:34.763Z	
+2025-03-20T21:02:34.764Z	60 packages are looking for funding
+2025-03-20T21:02:34.764Z	  run `npm fund` for details
+2025-03-20T21:02:34.787Z	
+2025-03-20T21:02:34.787Z	9 moderate severity vulnerabilities
+2025-03-20T21:02:34.787Z	
+2025-03-20T21:02:34.787Z	To address issues that do not require attention, run:
+2025-03-20T21:02:34.787Z	  npm audit fix
+2025-03-20T21:02:34.787Z	
+2025-03-20T21:02:34.787Z	To address all issues (including breaking changes), run:
+2025-03-20T21:02:34.787Z	  npm audit fix --force
+2025-03-20T21:02:34.787Z	
+2025-03-20T21:02:34.787Z	Run `npm audit` for details.
+2025-03-20T21:02:34.817Z	Executing user build command: npm run build
+2025-03-20T21:02:34.999Z	
+2025-03-20T21:02:34.999Z	> rest-express@1.0.0 build
+2025-03-20T21:02:34.999Z	> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-03-20T21:02:34.999Z	
+2025-03-20T21:02:35.332Z	vite v5.4.14 building for production...
+2025-03-20T21:02:35.399Z	transforming...
+2025-03-20T21:02:41.947Z	✓ 2866 modules transformed.
+2025-03-20T21:02:42.618Z	rendering chunks...
+2025-03-20T21:02:42.637Z	computing gzip size...
+2025-03-20T21:02:42.697Z	../dist/public/index.html                   1.89 kB │ gzip:   0.76 kB
+2025-03-20T21:02:42.697Z	../dist/public/assets/index-DgkNPZfX.css   63.75 kB │ gzip:  11.05 kB
+2025-03-20T21:02:42.697Z	../dist/public/assets/index-C358p218.js   964.71 kB │ gzip: 283.31 kB
+2025-03-20T21:02:42.698Z	✓ built in 7.35s
+2025-03-20T21:02:42.698Z	
+2025-03-20T21:02:42.698Z	(!) Some chunks are larger than 500 kB after minification. Consider:
+2025-03-20T21:02:42.702Z	- Using dynamic import() to code-split the application
+2025-03-20T21:02:42.706Z	- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-03-20T21:02:42.707Z	- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-03-20T21:02:42.759Z	
+2025-03-20T21:02:42.759Z	  dist/index.js  9.8kb
+2025-03-20T21:02:42.759Z	
+2025-03-20T21:02:42.759Z	⚡ Done in 4ms
+2025-03-20T21:02:42.767Z	Success: Build command completed
+2025-03-20T21:02:42.768Z	Executing user deploy command: npx wrangler deploy
+2025-03-20T21:02:43.674Z	npm warn exec The following package was not found and will be installed: wrangler@4.2.0
+2025-03-20T21:03:06.410Z	
+2025-03-20T21:03:06.411Z	 ⛅️ wrangler 4.2.0
+2025-03-20T21:03:06.411Z	------------------
+2025-03-20T21:03:06.411Z	
+2025-03-20T21:03:06.415Z	
+2025-03-20T21:03:06.465Z	✘ [ERROR] Missing entry-point: The entry-point should be specified via the command line (e.g. `wrangler deploy path/to/script`) or the `main` config field.
+2025-03-20T21:03:06.465Z	
+2025-03-20T21:03:06.465Z	
+2025-03-20T21:03:06.465Z	
+2025-03-20T21:03:06.465Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2025-03-20T21:03:06.483Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2025-03-20_21-03-06_039.log"
+2025-03-20T21:03:06.582Z	Failed: error occurred while running deploy command
