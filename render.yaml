@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: gridlinkx-app
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gridlinkx-db
+          property: connectionString
+
+databases:
+  - name: gridlinkx-db
+    plan: free
+    databaseName: gridlinkx
+    user: gridlinkx_user
