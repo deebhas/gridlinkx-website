@@ -4,22 +4,20 @@ export default function Logo() {
   return (
     <div className="flex items-center">
       <motion.svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
+        width="44"
+        height="44"
+        viewBox="0 0 44 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="text-primary"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Base hexagonal shape */}
+        {/* 3D Cube Framework */}
         <motion.path
-          d="M20 5L35 13V27L20 35L5 27V13L20 5Z"
-          stroke="url(#hexGradient)"
+          d="M22 4L40 14V30L22 40L4 30V14L22 4Z"
+          stroke="url(#cubeGradient)"
           strokeWidth="2"
-          strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
           initial={{ pathLength: 0 }}
@@ -27,10 +25,10 @@ export default function Logo() {
           transition={{ duration: 1 }}
         />
 
-        {/* Inner grid structure */}
+        {/* Inner Network Structure */}
         <motion.path
-          d="M20 5V20M35 13L20 20M5 13L20 20"
-          stroke="url(#gridGradient)"
+          d="M22 4V22M40 14L22 22M4 14L22 22"
+          stroke="url(#networkGradient)"
           strokeWidth="1.5"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
@@ -38,38 +36,77 @@ export default function Logo() {
           transition={{ delay: 0.5, duration: 1 }}
         />
 
-        {/* Computing nodes */}
-        <motion.circle cx="20" cy="5" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1 }} />
-        <motion.circle cx="35" cy="13" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.1 }} />
-        <motion.circle cx="35" cy="27" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2 }} />
-        <motion.circle cx="20" cy="35" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.3 }} />
-        <motion.circle cx="5" cy="27" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.4 }} />
-        <motion.circle cx="5" cy="13" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.5 }} />
+        {/* Data Flow Lines */}
+        <motion.path
+          d="M22 22C26 22 30 20 32 18M22 22C18 22 14 20 12 18M22 22C22 26 20 30 18 32M22 22C22 18 20 14 18 12"
+          stroke="url(#flowGradient)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ delay: 1, duration: 1.5 }}
+        />
 
-        {/* Central node */}
-        <motion.circle cx="20" cy="20" r="3" fill="url(#centerGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.6 }} />
+        {/* Resource Nodes */}
+        <motion.circle cx="22" cy="4" r="2.5" fill="url(#nodeGradient1)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2 }} />
+        <motion.circle cx="40" cy="14" r="2.5" fill="url(#nodeGradient2)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.3 }} />
+        <motion.circle cx="40" cy="30" r="2.5" fill="url(#nodeGradient3)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.4 }} />
+        <motion.circle cx="22" cy="40" r="2.5" fill="url(#nodeGradient1)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.5 }} />
+        <motion.circle cx="4" cy="30" r="2.5" fill="url(#nodeGradient2)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.6 }} />
+        <motion.circle cx="4" cy="14" r="2.5" fill="url(#nodeGradient3)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.7 }} />
 
-        {/* Gradients */}
+        {/* Central Computing Hub */}
+        <motion.circle 
+          cx="22" 
+          cy="22" 
+          r="4" 
+          fill="url(#centerGradient)"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 1.8 }}
+        />
+
+        {/* Gradient Definitions */}
         <defs>
-          <linearGradient id="hexGradient" x1="5" y1="5" x2="35" y2="35">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#0ea5e9" />
+          <linearGradient id="cubeGradient" x1="4" y1="4" x2="40" y2="40">
+            <stop offset="0%" stopColor="#4f46e5" />
+            <stop offset="50%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#06b6d4" />
           </linearGradient>
-          <linearGradient id="gridGradient" x1="5" y1="5" x2="35" y2="35">
-            <stop offset="0%" stopColor="#60a5fa" />
-            <stop offset="100%" stopColor="#38bdf8" />
+
+          <linearGradient id="networkGradient" x1="4" y1="4" x2="40" y2="40">
+            <stop offset="0%" stopColor="#6366f1" />
+            <stop offset="100%" stopColor="#34d399" />
           </linearGradient>
-          <radialGradient id="nodeGradient" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#0ea5e9" />
+
+          <linearGradient id="flowGradient" x1="12" y1="12" x2="32" y2="32">
+            <stop offset="0%" stopColor="#34d399" />
+            <stop offset="100%" stopColor="#06b6d4" />
+          </linearGradient>
+
+          <radialGradient id="nodeGradient1" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stopColor="#4f46e5" />
+            <stop offset="100%" stopColor="#6366f1" />
           </radialGradient>
+
+          <radialGradient id="nodeGradient2" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#34d399" />
+          </radialGradient>
+
+          <radialGradient id="nodeGradient3" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stopColor="#0891b2" />
+            <stop offset="100%" stopColor="#06b6d4" />
+          </radialGradient>
+
           <radialGradient id="centerGradient" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0%" stopColor="#2563eb" />
-            <stop offset="100%" stopColor="#0284c7" />
+            <stop offset="0%" stopColor="#4f46e5" />
+            <stop offset="50%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#06b6d4" />
           </radialGradient>
         </defs>
       </motion.svg>
-      <span className="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
+      <span className="ml-3 text-xl font-bold text-gradient">
         GridLinkX
       </span>
     </div>
