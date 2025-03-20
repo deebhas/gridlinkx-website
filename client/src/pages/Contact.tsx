@@ -22,34 +22,36 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const contactFormSchema = z.object({
+const waitlistFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  subject: z.string().min(1, "Please select a subject"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  interest: z.string().min(1, "Please select your interest"),
+  message: z.string().optional(),
+  organization: z.string().optional(),
 });
 
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+type WaitlistFormValues = z.infer<typeof waitlistFormSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+  const form = useForm<WaitlistFormValues>({
+    resolver: zodResolver(waitlistFormSchema),
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
+      interest: "",
       message: "",
+      organization: "",
     },
   });
 
-  async function onSubmit(data: ContactFormValues) {
+  async function onSubmit(data: WaitlistFormValues) {
     try {
       // In a real application, you would send this data to your backend
       console.log("Form data:", data);
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+        title: "Successfully joined waitlist!",
+        description: "We'll keep you updated on our beta program launch.",
       });
       form.reset();
     } catch (error) {
@@ -70,10 +72,9 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+            <h1 className="text-4xl font-bold mb-6">Join the Waitlist</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Have questions about GridLinkX? We're here to help. Fill out the form
-              below and we'll get back to you as soon as possible.
+              Be among the first to experience the future of distributed computing. Sign up for our waitlist and we'll notify you when our beta program launches.
             </p>
           </motion.div>
 
@@ -85,24 +86,31 @@ export default function Contact() {
             >
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-                  <p className="text-muted-foreground">
-                    Whether you're a potential customer, investor, or just curious
-                    about our technology, we'd love to hear from you.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Office Location</h3>
-                  <p className="text-muted-foreground">
-                    123 Tech Plaza<br />
-                    San Francisco, CA 94105
-                  </p>
+                  <h2 className="text-2xl font-bold mb-4">Why Join Early?</h2>
+                  <ul className="space-y-4 text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>Early access to revolutionary computing resources</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>Priority registration for resource providers</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>Exclusive beta testing opportunities</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>Shape the future of distributed computing</span>
+                    </li>
+                  </ul>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">Contact Information</h3>
                   <p className="text-muted-foreground">
                     Email: contact@gridlinkx.com<br />
-                    Phone: (555) 123-4567
+                    Location: San Francisco, CA
                   </p>
                 </div>
               </div>
@@ -146,24 +154,37 @@ export default function Contact() {
                   />
                   <FormField
                     control={form.control}
-                    name="subject"
+                    name="organization"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject</FormLabel>
+                        <FormLabel>Organization (Optional)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your company or organization" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="interest"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Primary Interest</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select a subject" />
+                              <SelectValue placeholder="Select your primary interest" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="general">General Inquiry</SelectItem>
-                            <SelectItem value="support">Technical Support</SelectItem>
-                            <SelectItem value="sales">Sales</SelectItem>
-                            <SelectItem value="investor">Investor Relations</SelectItem>
+                            <SelectItem value="user">Using the Platform</SelectItem>
+                            <SelectItem value="provider">Providing Resources</SelectItem>
+                            <SelectItem value="developer">Developer Integration</SelectItem>
+                            <SelectItem value="investor">Investment Opportunities</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -175,11 +196,11 @@ export default function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>Additional Information (Optional)</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Your message"
-                            className="min-h-[120px]"
+                            placeholder="Tell us about your specific interests or requirements"
+                            className="min-h-[100px]"
                             {...field}
                           />
                         </FormControl>
@@ -188,7 +209,7 @@ export default function Contact() {
                     )}
                   />
                   <Button type="submit" className="w-full">
-                    Send Message
+                    Join Waitlist
                   </Button>
                 </form>
               </Form>

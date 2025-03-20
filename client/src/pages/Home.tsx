@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Cloud, Cpu, Zap } from "lucide-react";
+import { Shield, Cloud, Cpu, Zap, Lock, Network, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FeatureCard from "@/components/FeatureCard";
 import { Link } from "wouter";
@@ -25,7 +25,7 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto"
             >
-              A revolutionary platform that transforms how computing resources are shared and utilized. From storage to processing power, GridLinkX creates a decentralized ecosystem for the next generation of cloud computing.
+              A revolutionary platform that transforms how computing resources are shared and utilized. Join our community-driven ecosystem that dramatically reduces costs while rewarding resource providers.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export default function Home() {
             >
               <Link href="/contact">
                 <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-                  Join Beta Program
+                  Stay Updated
                 </Button>
               </Link>
               <Link href="/about">
@@ -60,8 +60,8 @@ export default function Home() {
             />
             <FeatureCard
               icon={Cloud}
-              title="Decentralized Storage"
-              description="Revolutionary data storage system with end-to-end encryption and instant access."
+              title="Redundant Storage"
+              description="Advanced data distribution ensures reliability and instant access through multiple backup nodes."
             />
             <FeatureCard
               icon={Shield}
@@ -77,8 +77,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why GridLinkX?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
+              <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
+                <DollarSign className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Cost Revolution</h3>
+              <p className="text-muted-foreground">
+                Dramatically reduce computing costs through our community-driven marketplace. Resource providers earn by sharing idle capacity.
+              </p>
+            </div>
+            <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
+              <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
+                <Network className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">P2P Architecture</h3>
+              <p className="text-muted-foreground">
+                Decentralized peer-to-peer network ensures high availability and faster data access through local nodes.
+              </p>
+            </div>
+            <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
+              <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
+                <Lock className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Enterprise Security</h3>
+              <p className="text-muted-foreground">
+                Military-grade encryption and distributed storage ensure your data remains private and secure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             How It Works
@@ -110,14 +148,14 @@ export default function Home() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Be Part of the Revolution
+            Stay Informed
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join our beta program and be among the first to experience the future of distributed computing.
+            Join our waitlist to receive exclusive updates and be the first to know when our beta program launches.
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-              Request Beta Access
+              Join Waitlist
             </Button>
           </Link>
         </div>
