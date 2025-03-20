@@ -28,7 +28,6 @@ const waitlistFormSchema = z.object({
   interest: z.string().min(1, "Please select your interest"),
   message: z.string().optional(),
   organization: z.string().optional(),
-  investmentRange: z.string().optional(),
 });
 
 type WaitlistFormValues = z.infer<typeof waitlistFormSchema>;
@@ -43,7 +42,6 @@ export default function Contact() {
       interest: "",
       message: "",
       organization: "",
-      investmentRange: "",
     },
   });
 
@@ -111,7 +109,8 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold mb-2">Contact Information</h3>
                   <p className="text-muted-foreground">
-                    Email: contact@gridlinkx.com
+                    Email: deepakbnair@gmail.com<br />
+                    (contact@gridlinkx.com - coming soon)
                   </p>
                 </div>
               </div>
@@ -186,31 +185,6 @@ export default function Contact() {
                             <SelectItem value="provider">Resource Provider</SelectItem>
                             <SelectItem value="enterprise">Enterprise User</SelectItem>
                             <SelectItem value="developer">Developer/Integration</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="investmentRange"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Investment Range (Optional)</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select investment range" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="seed">$10K - $50K</SelectItem>
-                            <SelectItem value="angel">$50K - $250K</SelectItem>
-                            <SelectItem value="institutional">$250K+</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
