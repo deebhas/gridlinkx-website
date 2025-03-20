@@ -1,0 +1,79 @@
+GridLinkX: Decentralized Cloud Storage Platform
+Website Description
+GridLinkX is a cutting-edge decentralized cloud storage platform that revolutionizes how data is stored and secured. The website consists of five main sections: Home, About, For Investors, Pricing, and Contact. The design employs a modern, sleek interface with a dark/light mode color scheme, glass-like components, gradient highlights, and responsive layout that adapts seamlessly to all device sizes.
+
+Navigation and Layout
+The website features a fixed navigation bar at the top with the GridLinkX logo (a circular "G" icon), followed by navigation links to all major sections. On mobile, the navigation collapses into a hamburger menu. The layout includes smooth scrolling, fade-in animations for elements as users scroll down, and a convenient scroll-to-top button that appears when scrolling down.
+
+Home Page
+The Home page opens with a hero section featuring:
+
+A bold headline introducing GridLinkX as "The Future of Cloud Storage"
+A subheading explaining the decentralized nature of the platform
+Call-to-action buttons to get started or learn more
+A stylized illustration of the technology concept
+Following sections include:
+
+Features - Grid layout of key platform benefits, each with an icon, title, and description
+Live Demo - Interactive demonstration of how files are split and distributed across the network
+Stats Section - Metrics showing platform growth (15,000+ active users, 8 PB+ data stored, 99.9% uptime, 150 TB+ daily traffic)
+Testimonials - Customer success stories from enterprise customers, storage contributors, and security experts
+About Page
+The About page tells the story of GridLinkX through several sections:
+
+Our Story - The founding vision of creating a more secure and efficient cloud storage solution through decentralization
+Our Mission - Three core pillars: Secure the World's Data, Democratize Storage, and Create a New Economy
+Our Values - Security First, Innovation, and Community, each with descriptive text and icons
+What Sets Us Apart - Key differentiators including revolutionary architecture, end-to-end encryption, cost efficiency, and the contributor network
+Our Future - Roadmap including enterprise solutions, global expansion, and advanced security features
+Call to Action - Invitation to join the journey with contact links
+For Investors Page
+The For Investors page uses a tabbed interface covering:
+
+The Opportunity - Overview of the revolutionary storage technology, investment benefits, and vision
+Market Analysis - Data visualizations showing market size ($97B cloud storage market growing at 24.3% CAGR), market share projections, and projected growth
+Financials - Charts detailing revenue streams, 5-year projections, profitability timeline, and investment specifics (seeking $10M with 15x projected ROI)
+Our Team - Leadership profiles highlighting experience and expertise, plus advisory board information
+The page includes multiple interactive charts (bar charts, pie charts, line charts) visualizing key metrics and projections.
+
+Pricing Page
+The Pricing page showcases different subscription tiers:
+
+Free Tier - Basic features for individuals
+Pro Tier - Enhanced features for professionals
+Business Tier - Advanced features for small businesses
+Enterprise Tier - Customizable solutions for large organizations
+Each pricing tier includes:
+
+Monthly/annual price
+Storage capacity
+Speed/bandwidth limits
+Security features
+Number of users
+Customer support level
+Additional features specific to each tier
+The page also includes a comparison table, FAQ section, and custom quote option for enterprise clients.
+
+Contact Page
+The Contact page includes:
+
+Contact Form - Fields for name, email, subject dropdown, and message
+Contact Information - Email and phone contact details
+For Investors - Special section with information for potential investors
+Social Media Links - Company profiles on various platforms
+Careers Section - Brief information about joining the team
+Design Elements
+Color Scheme: Primary color is blue (#3b82f6) with gradient accents
+Typography: Clean, modern sans-serif font hierarchy
+Components: Glass-like cards with subtle transparency effects
+Icons: Line-style icons from Lucide React library
+Animations: Subtle fade-in effects when scrolling
+UI Framework: Uses Tailwind CSS for styling with shadcn/ui components
+Technical Features
+Responsive design that works on mobile, tablet, and desktop
+Dark/light mode support
+Accessible UI elements following web standards
+Interactive charts for data visualization
+Form validation and submission handling
+Authentication system with sign-in/sign-up pages
+This website positions GridLinkX as an innovative technology company disrupting the cloud storage market through decentralization, offering both practical benefits to users and compelling opportunities to investors.
