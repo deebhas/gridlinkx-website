@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Logo from "./Logo";
 
 const NavLinks = [
   { name: "Home", path: "/" },
@@ -24,10 +25,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/">
               <a className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
-                  G
-                </div>
-                <span className="ml-2 text-xl font-bold">GridLinkX</span>
+                <Logo />
               </a>
             </Link>
           </div>
@@ -40,8 +38,8 @@ export default function Navbar() {
                   className={cn(
                     "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                     location === link.path
-                      ? "text-primary"
-                      : "hover:text-primary"
+                      ? "text-primary bg-primary/10"
+                      : "hover:text-primary hover:bg-primary/5"
                   )}
                 >
                   {link.name}
@@ -73,8 +71,8 @@ export default function Navbar() {
                   className={cn(
                     "block px-3 py-2 rounded-md text-base font-medium transition-colors",
                     location === link.path
-                      ? "text-primary"
-                      : "hover:text-primary"
+                      ? "text-primary bg-primary/10"
+                      : "hover:text-primary hover:bg-primary/5"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
