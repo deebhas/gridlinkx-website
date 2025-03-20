@@ -28,6 +28,7 @@ const waitlistFormSchema = z.object({
   interest: z.string().min(1, "Please select your interest"),
   message: z.string().optional(),
   organization: z.string().optional(),
+  investmentRange: z.string().optional(),
 });
 
 type WaitlistFormValues = z.infer<typeof waitlistFormSchema>;
@@ -42,6 +43,7 @@ export default function Contact() {
       interest: "",
       message: "",
       organization: "",
+      investmentRange: "",
     },
   });
 
@@ -51,7 +53,7 @@ export default function Contact() {
       console.log("Form data:", data);
       toast({
         title: "Successfully joined waitlist!",
-        description: "We'll keep you updated on our beta program launch.",
+        description: "We'll keep you updated on our progress and investment opportunities.",
       });
       form.reset();
     } catch (error) {
@@ -72,9 +74,9 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6">Join the Waitlist</h1>
+            <h1 className="text-4xl font-bold mb-6">Join the Revolution</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Be among the first to experience the future of distributed computing. Sign up for our waitlist and we'll notify you when our beta program launches.
+              Be among the first to participate in the future of distributed computing. Whether you're an investor, resource provider, or potential user, join our waitlist to stay informed about our progress and upcoming opportunities.
             </p>
           </motion.div>
 
@@ -86,31 +88,30 @@ export default function Contact() {
             >
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">Why Join Early?</h2>
+                  <h2 className="text-2xl font-bold mb-4">Investment Opportunity</h2>
                   <ul className="space-y-4 text-muted-foreground">
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full"></span>
-                      <span>Early access to revolutionary computing resources</span>
+                      <span>Disruptive technology in the $97B cloud computing market</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full"></span>
-                      <span>Priority registration for resource providers</span>
+                      <span>70% cost reduction compared to traditional providers</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full"></span>
-                      <span>Exclusive beta testing opportunities</span>
+                      <span>Community-driven marketplace with multiple revenue streams</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full"></span>
-                      <span>Shape the future of distributed computing</span>
+                      <span>Patentable distributed computing technology</span>
                     </li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">Contact Information</h3>
                   <p className="text-muted-foreground">
-                    Email: contact@gridlinkx.com<br />
-                    Location: San Francisco, CA
+                    Email: contact@gridlinkx.com
                   </p>
                 </div>
               </div>
@@ -157,7 +158,7 @@ export default function Contact() {
                     name="organization"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Organization (Optional)</FormLabel>
+                        <FormLabel>Organization</FormLabel>
                         <FormControl>
                           <Input placeholder="Your company or organization" {...field} />
                         </FormControl>
@@ -181,10 +182,35 @@ export default function Contact() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="user">Using the Platform</SelectItem>
-                            <SelectItem value="provider">Providing Resources</SelectItem>
-                            <SelectItem value="developer">Developer Integration</SelectItem>
-                            <SelectItem value="investor">Investment Opportunities</SelectItem>
+                            <SelectItem value="investor">Investment Opportunity</SelectItem>
+                            <SelectItem value="provider">Resource Provider</SelectItem>
+                            <SelectItem value="enterprise">Enterprise User</SelectItem>
+                            <SelectItem value="developer">Developer/Integration</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="investmentRange"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Investment Range (Optional)</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select investment range" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="seed">$10K - $50K</SelectItem>
+                            <SelectItem value="angel">$50K - $250K</SelectItem>
+                            <SelectItem value="institutional">$250K+</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -196,7 +222,7 @@ export default function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Additional Information (Optional)</FormLabel>
+                        <FormLabel>Additional Information</FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="Tell us about your specific interests or requirements"
@@ -208,7 +234,7 @@ export default function Contact() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
                     Join Waitlist
                   </Button>
                 </form>
