@@ -9,6 +9,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 
 const marketData = [
@@ -18,6 +21,20 @@ const marketData = [
   { year: 2026, value: 185 },
   { year: 2027, value: 230 },
 ];
+
+const costComparisonData = [
+  { name: "Traditional Cloud", value: 100 },
+  { name: "GridLinkX", value: 30 },
+];
+
+const revenueStreams = [
+  { name: "Computing Resources", value: 40 },
+  { name: "Enterprise Solutions", value: 25 },
+  { name: "API Access", value: 15 },
+  { name: "Network Rewards", value: 20 },
+];
+
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export default function Investors() {
   return (
@@ -29,10 +46,10 @@ export default function Investors() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6">For Investors</h1>
+            <h1 className="text-4xl font-bold mb-6">Investment Opportunity</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Join us in revolutionizing the cloud computing industry through
-              decentralization and cutting-edge technology.
+              Join us in revolutionizing the $97B cloud computing industry through
+              our innovative decentralized platform.
             </p>
           </motion.div>
 
@@ -50,15 +67,13 @@ export default function Investors() {
                     Revolutionary Computing Technology
                   </h2>
                   <p className="text-muted-foreground mb-6">
-                    GridLinkX is positioned to capture a significant share of the
-                    $97B cloud computing market through our innovative decentralized
-                    approach.
+                    GridLinkX introduces a fundamentally new, asset-light model that transforms how cloud computing services are delivered, focusing on sustainability and community-driven growth.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="p-4 rounded-lg bg-primary/10">
                       <h3 className="font-semibold mb-2">Asset-Light Model</h3>
                       <p className="text-sm text-muted-foreground">
-                        No billion-dollar data centers needed - leveraging existing infrastructure
+                        No billion-dollar data centers needed - leveraging existing infrastructure worldwide
                       </p>
                     </div>
                     <div className="p-4 rounded-lg bg-primary/10">
@@ -74,6 +89,24 @@ export default function Investors() {
                       </p>
                     </div>
                   </div>
+
+                  <div className="mt-8">
+                    <h3 className="text-xl font-semibold mb-6">Cost Comparison</h3>
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={costComparisonData} layout="vertical">
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis type="number" domain={[0, 100]} />
+                          <YAxis dataKey="name" type="category" />
+                          <Tooltip />
+                          <Bar dataKey="value" fill="hsl(var(--primary))" />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-4 text-center">
+                      Relative Cost Comparison (Traditional Cloud = 100%)
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -82,7 +115,7 @@ export default function Investors() {
               <Card>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold mb-6">Market Growth</h2>
-                  <div className="h-[400px] w-full">
+                  <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={marketData}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -108,7 +141,7 @@ export default function Investors() {
                           <div>
                             <h4 className="font-semibold">ESG Alignment</h4>
                             <p className="text-muted-foreground">
-                              Reduced carbon footprint through resource reuse and sustainable practices
+                              Significantly reduced carbon footprint by utilizing existing resources and eliminating the need for new data centers
                             </p>
                           </div>
                         </li>
@@ -117,9 +150,9 @@ export default function Investors() {
                             <span className="text-green-600">2</span>
                           </div>
                           <div>
-                            <h4 className="font-semibold">Community-Driven Growth</h4>
+                            <h4 className="font-semibold">Global Scalability</h4>
                             <p className="text-muted-foreground">
-                              Network effect creates strong barriers to entry as community grows
+                              Rapid expansion capability without traditional infrastructure constraints
                             </p>
                           </div>
                         </li>
@@ -128,9 +161,9 @@ export default function Investors() {
                             <span className="text-green-600">3</span>
                           </div>
                           <div>
-                            <h4 className="font-semibold">Technological Innovation</h4>
+                            <h4 className="font-semibold">Network Effect Moat</h4>
                             <p className="text-muted-foreground">
-                              Patentable distributed computing technology with multiple applications
+                              Each new participant strengthens the network, creating a powerful competitive advantage
                             </p>
                           </div>
                         </li>
@@ -145,29 +178,56 @@ export default function Investors() {
               <Card>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold mb-6">Financial Projections</h2>
-                  <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                      <h3 className="font-semibold mb-2">Investment Overview</h3>
-                      <p className="text-muted-foreground">
-                        Seeking $10M in Series A funding with projected 15x ROI
-                        within 5 years
+                      <h3 className="text-xl font-semibold mb-4">Revenue Model</h3>
+                      <div className="h-[300px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <PieChart>
+                            <Pie
+                              data={revenueStreams}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
+                              outerRadius={80}
+                              label
+                            >
+                              {revenueStreams.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                              ))}
+                            </Pie>
+                            <Tooltip />
+                          </PieChart>
+                        </ResponsiveContainer>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-4 text-center">
+                        Projected Revenue Distribution
                       </p>
                     </div>
+
                     <div>
-                      <h3 className="font-semibold mb-2">Revenue Streams</h3>
-                      <ul className="list-disc list-inside text-muted-foreground">
-                        <li>Computing resource subscription fees</li>
-                        <li>Enterprise solutions</li>
-                        <li>API access fees</li>
-                        <li>Network participation rewards</li>
-                        <li>Value-added services</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">High Margin Business Model</h3>
-                      <p className="text-muted-foreground">
-                        Asset-light approach with minimal infrastructure costs allows for attractive operating margins and extended runway for product innovation and market capture.
-                      </p>
+                      <h3 className="text-xl font-semibold mb-4">Investment Highlights</h3>
+                      <div className="space-y-4">
+                        <div className="p-4 rounded-lg bg-primary/10">
+                          <h4 className="font-semibold">Seeking $10M Series A</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Projected 15x ROI within 5 years
+                          </p>
+                        </div>
+                        <div className="p-4 rounded-lg bg-primary/10">
+                          <h4 className="font-semibold">High Operating Margins</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Asset-light model enables 70%+ gross margins
+                          </p>
+                        </div>
+                        <div className="p-4 rounded-lg bg-primary/10">
+                          <h4 className="font-semibold">Multiple Revenue Streams</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Diversified income from compute resources, enterprise solutions, and network rewards
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>

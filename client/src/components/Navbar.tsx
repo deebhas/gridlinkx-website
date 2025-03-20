@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NavLinks = [
@@ -49,16 +48,13 @@ export default function Navbar() {
                 </a>
               </Link>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center">
-            <ThemeToggle />
+          <div className="flex md:hidden">
             <Button
               variant="ghost"
               size="icon"
-              className="ml-2"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
