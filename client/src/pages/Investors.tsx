@@ -34,7 +34,20 @@ const revenueStreams = [
   { name: "Network Rewards", value: 20 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#3b82f6', '#22c55e', '#6366f1', '#f59e0b'];
+
+// Custom tooltip styles
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-3 border rounded-lg shadow-lg">
+        <p className="font-semibold">{label}</p>
+        <p className="text-primary">{`Value: ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 export default function Investors() {
   return (
@@ -70,19 +83,19 @@ export default function Investors() {
                     GridLinkX introduces a fundamentally new, asset-light model that transforms how cloud computing services are delivered, focusing on sustainability and community-driven growth.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="p-4 rounded-lg bg-primary/10">
+                    <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
                       <h3 className="font-semibold mb-2">Asset-Light Model</h3>
                       <p className="text-sm text-muted-foreground">
                         No billion-dollar data centers needed - leveraging existing infrastructure worldwide
                       </p>
                     </div>
-                    <div className="p-4 rounded-lg bg-primary/10">
+                    <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
                       <h3 className="font-semibold mb-2">Cost Efficiency</h3>
                       <p className="text-sm text-muted-foreground">
                         Up to 70% cost reduction compared to traditional providers
                       </p>
                     </div>
-                    <div className="p-4 rounded-lg bg-primary/10">
+                    <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
                       <h3 className="font-semibold mb-2">Network Effects</h3>
                       <p className="text-sm text-muted-foreground">
                         Strong competitive moat through growing provider network
@@ -90,16 +103,26 @@ export default function Investors() {
                     </div>
                   </div>
 
-                  <div className="mt-8">
+                  <div className="mt-12">
                     <h3 className="text-xl font-semibold mb-6">Cost Comparison</h3>
-                    <div className="h-[300px]">
+                    <div className="h-[250px]">
                       <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={costComparisonData} layout="vertical">
-                          <CartesianGrid strokeDasharray="3 3" />
+                        <BarChart data={costComparisonData} layout="vertical" barSize={30}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                           <XAxis type="number" domain={[0, 100]} />
-                          <YAxis dataKey="name" type="category" />
-                          <Tooltip />
-                          <Bar dataKey="value" fill="hsl(var(--primary))" />
+                          <YAxis dataKey="name" type="category" width={120} />
+                          <Tooltip content={<CustomTooltip />} />
+                          <Bar 
+                            dataKey="value" 
+                            radius={[0, 4, 4, 0]}
+                            fill="url(#colorGradient)"
+                          />
+                          <defs>
+                            <linearGradient id="colorGradient" x1="0" y1="0" x2="1" y2="0">
+                              <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.8} />
+                              <stop offset="100%" stopColor="#60a5fa" stopOpacity={0.8} />
+                            </linearGradient>
+                          </defs>
                         </BarChart>
                       </ResponsiveContainer>
                     </div>
@@ -117,12 +140,22 @@ export default function Investors() {
                   <h2 className="text-2xl font-bold mb-6">Market Growth</h2>
                   <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={marketData}>
-                        <CartesianGrid strokeDasharray="3 3" />
+                      <BarChart data={marketData} barSize={40}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                         <XAxis dataKey="year" />
                         <YAxis />
-                        <Tooltip />
-                        <Bar dataKey="value" fill="hsl(var(--primary))" />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Bar 
+                          dataKey="value" 
+                          fill="url(#marketGradient)"
+                          radius={[4, 4, 0, 0]}
+                        />
+                        <defs>
+                          <linearGradient id="marketGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.8} />
+                            <stop offset="100%" stopColor="#93c5fd" stopOpacity={0.8} />
+                          </linearGradient>
+                        </defs>
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -209,19 +242,19 @@ export default function Investors() {
                     <div>
                       <h3 className="text-xl font-semibold mb-4">Investment Highlights</h3>
                       <div className="space-y-4">
-                        <div className="p-4 rounded-lg bg-primary/10">
+                        <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
                           <h4 className="font-semibold">Seeking $10M Series A</h4>
                           <p className="text-sm text-muted-foreground">
                             Projected 15x ROI within 5 years
                           </p>
                         </div>
-                        <div className="p-4 rounded-lg bg-primary/10">
+                        <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
                           <h4 className="font-semibold">High Operating Margins</h4>
                           <p className="text-sm text-muted-foreground">
                             Asset-light model enables 70%+ gross margins
                           </p>
                         </div>
-                        <div className="p-4 rounded-lg bg-primary/10">
+                        <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100">
                           <h4 className="font-semibold">Multiple Revenue Streams</h4>
                           <p className="text-sm text-muted-foreground">
                             Diversified income from compute resources, enterprise solutions, and network rewards
