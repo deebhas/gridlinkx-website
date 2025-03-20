@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Cloud, Cpu, Database, Server, Zap } from "lucide-react";
+import { Check, Cloud, Cpu, Database, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -32,7 +32,6 @@ const userPlans = [
       "Basic GPU access",
       "API access",
     ],
-    popular: true,
   },
   {
     name: "Business",
@@ -94,7 +93,6 @@ const providerPlans = [
       "Detailed analytics",
       "Performance optimization",
     ],
-    popular: true,
   },
   {
     name: "Data Center Provider",
@@ -144,26 +142,17 @@ export default function Pricing() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Card className={`relative h-full backdrop-blur-lg bg-card/80 ${
-                      plan.popular ? "border-primary" : ""
-                    }`}>
-                      {plan.popular && (
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm">
-                            Most Popular
-                          </span>
-                        </div>
-                      )}
+                    <Card className="relative h-full backdrop-blur-lg bg-gradient-to-br from-white/80 to-white/40 border-blue-100 hover:border-blue-200 transition-colors">
                       <CardHeader>
                         <CardTitle>
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
                               {plan.icon && <plan.icon className="w-5 h-5 text-primary" />}
                             </div>
                             <span className="text-2xl font-bold">{plan.name}</span>
                           </div>
                           <div className="mt-4">
-                            <span className="text-4xl font-bold">{plan.price}</span>
+                            <span className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">{plan.price}</span>
                           </div>
                         </CardTitle>
                       </CardHeader>
@@ -197,26 +186,17 @@ export default function Pricing() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Card className={`relative h-full backdrop-blur-lg bg-card/80 ${
-                      plan.popular ? "border-primary" : ""
-                    }`}>
-                      {plan.popular && (
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm">
-                            Most Popular
-                          </span>
-                        </div>
-                      )}
+                    <Card className="relative h-full backdrop-blur-lg bg-gradient-to-br from-white/80 to-white/40 border-blue-100 hover:border-blue-200 transition-colors">
                       <CardHeader>
                         <CardTitle>
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
                               {plan.icon && <plan.icon className="w-5 h-5 text-primary" />}
                             </div>
                             <span className="text-2xl font-bold">{plan.name}</span>
                           </div>
                           <div className="mt-4">
-                            <span className="text-4xl font-bold">{plan.earning}</span>
+                            <span className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">{plan.earning}</span>
                           </div>
                         </CardTitle>
                       </CardHeader>

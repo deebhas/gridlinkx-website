@@ -10,38 +10,39 @@ export default function Logo() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="text-primary"
-        initial={{ rotate: -90 }}
-        animate={{ rotate: 0 }}
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       >
+        {/* Grid pattern background */}
         <motion.path
-          d="M16 4L28 10V22L16 28L4 22V10L16 4Z"
+          d="M6 6H26V26H6V6Z"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          fill="none"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 1 }}
         />
+
+        {/* Connected nodes */}
+        <motion.circle cx="11" cy="11" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.5 }} />
+        <motion.circle cx="21" cy="11" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.6 }} />
+        <motion.circle cx="16" cy="16" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.7 }} />
+        <motion.circle cx="11" cy="21" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8 }} />
+        <motion.circle cx="21" cy="21" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.9 }} />
+
+        {/* Connection lines */}
         <motion.path
-          d="M16 16L28 10M16 16L4 10M16 16V28"
+          d="M11 11L16 16M21 11L16 16M11 21L16 16M21 21L16 16"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeLinecap="round"
-          strokeLinejoin="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        />
-        <motion.circle
-          cx="16"
-          cy="16"
-          r="2"
-          fill="currentColor"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.3, delay: 1 }}
+          transition={{ delay: 1, duration: 1 }}
         />
       </motion.svg>
       <span className="ml-2 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
