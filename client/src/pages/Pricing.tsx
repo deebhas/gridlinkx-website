@@ -2,53 +2,49 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "wouter";
 
 const plans = [
   {
-    name: "Free",
-    price: "$0",
+    name: "Basic",
+    price: "Coming Soon",
     features: [
+      "Basic compute resources",
       "5 GB Storage",
-      "Basic encryption",
-      "1 user",
-      "Email support",
+      "1 vCPU core",
+      "2 GB RAM",
+      "Community support",
+      "Basic monitoring",
     ],
   },
   {
-    name: "Pro",
-    price: "$9.99",
+    name: "Professional",
+    price: "Coming Soon",
     features: [
+      "Enhanced compute power",
       "100 GB Storage",
-      "Advanced encryption",
-      "3 users",
+      "4 vCPU cores",
+      "8 GB RAM",
+      "Basic GPU access",
       "Priority support",
+      "Advanced monitoring",
       "API access",
     ],
     popular: true,
   },
   {
-    name: "Business",
-    price: "$29.99",
-    features: [
-      "1 TB Storage",
-      "Enterprise-grade encryption",
-      "10 users",
-      "24/7 support",
-      "Advanced API access",
-      "Custom domain",
-    ],
-  },
-  {
     name: "Enterprise",
     price: "Custom",
     features: [
-      "Unlimited storage",
-      "Custom security features",
-      "Unlimited users",
-      "Dedicated support team",
+      "Unlimited resources",
+      "Custom storage allocation",
+      "Dedicated CPU cores",
+      "Custom RAM allocation",
+      "Priority GPU access",
+      "24/7 support",
       "Full API access",
       "Advanced analytics",
-      "SLA guarantee",
+      "Custom SLA",
     ],
   },
 ];
@@ -63,14 +59,13 @@ export default function Pricing() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-6">Simple, Transparent Pricing</h1>
+            <h1 className="text-4xl font-bold mb-6">Flexible Resource Plans</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Choose the perfect plan for your storage needs. All plans include our
-              core security features and world-class support.
+              Choose the perfect plan for your computing needs. All plans include access to our distributed computing platform, advanced security features, and dedicated support.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan, index) => (
               <motion.div
                 key={plan.name}
@@ -93,9 +88,6 @@ export default function Pricing() {
                       <div className="text-2xl font-bold">{plan.name}</div>
                       <div className="mt-4">
                         <span className="text-4xl font-bold">{plan.price}</span>
-                        {plan.price !== "Custom" && (
-                          <span className="text-muted-foreground">/month</span>
-                        )}
                       </div>
                     </CardTitle>
                   </CardHeader>
@@ -108,14 +100,28 @@ export default function Pricing() {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-6">
-                      {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
-                    </Button>
+                    <Link href="/contact">
+                      <Button className="w-full mt-6">
+                        {plan.name === "Enterprise" ? "Contact Sales" : "Join Waitlist"}
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-16 text-center"
+          >
+            <h2 className="text-2xl font-semibold mb-4">Custom Solutions Available</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Need a specialized configuration? Our enterprise plans can be tailored to your specific computing requirements. Contact our sales team to discuss custom solutions.
+            </p>
+          </motion.div>
         </div>
       </section>
     </div>
