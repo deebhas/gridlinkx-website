@@ -4,9 +4,9 @@ export default function Logo() {
   return (
     <div className="flex items-center">
       <motion.svg
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="text-primary"
@@ -14,10 +14,10 @@ export default function Logo() {
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Grid pattern background */}
+        {/* Base hexagonal shape */}
         <motion.path
-          d="M6 6H26V26H6V6Z"
-          stroke="currentColor"
+          d="M20 5L35 13V27L20 35L5 27V13L20 5Z"
+          stroke="url(#hexGradient)"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -27,25 +27,49 @@ export default function Logo() {
           transition={{ duration: 1 }}
         />
 
-        {/* Connected nodes */}
-        <motion.circle cx="11" cy="11" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.5 }} />
-        <motion.circle cx="21" cy="11" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.6 }} />
-        <motion.circle cx="16" cy="16" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.7 }} />
-        <motion.circle cx="11" cy="21" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8 }} />
-        <motion.circle cx="21" cy="21" r="2" fill="currentColor" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.9 }} />
-
-        {/* Connection lines */}
+        {/* Inner grid structure */}
         <motion.path
-          d="M11 11L16 16M21 11L16 16M11 21L16 16M21 21L16 16"
-          stroke="currentColor"
-          strokeWidth="1"
+          d="M20 5V20M35 13L20 20M5 13L20 20"
+          stroke="url(#gridGradient)"
+          strokeWidth="1.5"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ delay: 1, duration: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
         />
+
+        {/* Computing nodes */}
+        <motion.circle cx="20" cy="5" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1 }} />
+        <motion.circle cx="35" cy="13" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.1 }} />
+        <motion.circle cx="35" cy="27" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2 }} />
+        <motion.circle cx="20" cy="35" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.3 }} />
+        <motion.circle cx="5" cy="27" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.4 }} />
+        <motion.circle cx="5" cy="13" r="2.5" fill="url(#nodeGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.5 }} />
+
+        {/* Central node */}
+        <motion.circle cx="20" cy="20" r="3" fill="url(#centerGradient)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.6 }} />
+
+        {/* Gradients */}
+        <defs>
+          <linearGradient id="hexGradient" x1="5" y1="5" x2="35" y2="35">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#0ea5e9" />
+          </linearGradient>
+          <linearGradient id="gridGradient" x1="5" y1="5" x2="35" y2="35">
+            <stop offset="0%" stopColor="#60a5fa" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+          <radialGradient id="nodeGradient" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#0ea5e9" />
+          </radialGradient>
+          <radialGradient id="centerGradient" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stopColor="#2563eb" />
+            <stop offset="100%" stopColor="#0284c7" />
+          </radialGradient>
+        </defs>
       </motion.svg>
-      <span className="ml-2 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
+      <span className="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
         GridLinkX
       </span>
     </div>
