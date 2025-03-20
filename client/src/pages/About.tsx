@@ -33,9 +33,11 @@ export default function About() {
           >
             <h1 className="text-4xl font-bold mb-6">Our Story</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Founded with a vision to revolutionize cloud storage, GridLinkX
-              emerged from the belief that data storage should be secure,
-              efficient, and accessible to everyone.
+              Founded with a vision to revolutionize cloud computing, GridLinkX
+              emerged from the realization that massive computing resources remain
+              idle worldwide. We saw an opportunity to create a marketplace that
+              transforms how computing power is shared, accessed, and monetized,
+              making high-performance computing accessible to everyone.
             </p>
           </motion.div>
         </div>
@@ -55,11 +57,11 @@ export default function About() {
               <Card className="h-full backdrop-blur-lg bg-card/80">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">
-                    Secure the World's Data
+                    Democratize Computing
                   </h3>
                   <p className="text-muted-foreground">
-                    Providing unbreakable encryption and innovative storage
-                    solutions to protect valuable information.
+                    Making high-performance computing resources accessible and
+                    affordable for everyone, from startups to enterprises.
                   </p>
                 </CardContent>
               </Card>
@@ -73,11 +75,11 @@ export default function About() {
               <Card className="h-full backdrop-blur-lg bg-card/80">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">
-                    Democratize Storage
+                    Empower Providers
                   </h3>
                   <p className="text-muted-foreground">
-                    Making secure cloud storage accessible and affordable for
-                    everyone around the globe.
+                    Creating opportunities for individuals and organizations to
+                    monetize their idle computing resources securely.
                   </p>
                 </CardContent>
               </Card>
@@ -91,11 +93,12 @@ export default function About() {
               <Card className="h-full backdrop-blur-lg bg-card/80">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">
-                    Create a New Economy
+                    Drive Innovation
                   </h3>
                   <p className="text-muted-foreground">
-                    Building a sustainable ecosystem where storage providers and
-                    users can thrive together.
+                    Advancing distributed computing technology to enable new
+                    possibilities in AI, scientific research, and enterprise
+                    applications.
                   </p>
                 </CardContent>
               </Card>
@@ -104,7 +107,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Values Section */}
+      {/* Our Values Section - Keeping as is since it's good */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
