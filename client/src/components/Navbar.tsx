@@ -12,7 +12,6 @@ const NavLinks = [
   { name: "For Investors", path: "/investors" },
   { name: "Pricing", path: "/pricing" },
   { name: "Contact", path: "/contact" },
-  { name: "Status", path: "/status" },
 ];
 
 export default function Navbar() {

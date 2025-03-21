@@ -45,6 +45,8 @@ Render will automatically:
 #### 5. Verify Deployment
 Once DNS propagation is complete (which can take up to 48 hours, though often much faster), your site should be accessible at gridlinkx.com.
 
+You can verify the deployment status by accessing the hidden status page at `/status` (e.g., gridlinkx.com/status). This page is not visible in the navigation menu and is specifically designed for deployment verification.
+
 ## Local Development
 
 ### Setup
@@ -66,6 +68,23 @@ npm run db:push
 - `DATABASE_URL`: PostgreSQL connection string (provided by Render)
 - `NODE_ENV`: Set to "production" for production environments
 - `PORT`: Port to run the server on (provided by Render)
+
+## Admin Tools
+
+### Status Page
+The application includes a hidden status page that displays system information and deployment status. This page is not visible in the navigation menu but can be accessed directly at:
+```
+https://your-domain.com/status
+```
+
+This page shows:
+- Current environment (development or production)
+- Deployment platform detection
+- Application status
+- Version information
+- Deployment timestamp
+
+This is useful for quickly verifying that your deployment is working correctly after setup.
 
 ## Troubleshooting Render.com Deployment
 
