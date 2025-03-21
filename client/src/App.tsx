@@ -6,6 +6,7 @@ import Investors from "@/pages/Investors";
 import Pricing from "@/pages/Pricing";
 import Contact from "@/pages/Contact";
 import Admin from "@/pages/Admin";
+import Status from "@/pages/Status";
 import NotFound from "@/pages/not-found";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/pricing" component={Pricing} />
           <Route path="/contact" component={Contact} />
           <Route path="/admin" component={Admin} />
+          <Route path="/status" component={Status} />
           <Route component={NotFound} />
         </Switch>
         <ScrollToTop />
