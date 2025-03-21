@@ -1,0 +1,34 @@
+{
+  "name": "GridLinkX",
+  "description": "A sophisticated distributed computing platform designed for seamless cloud infrastructure deployment and collaborative resource sharing.",
+  "keywords": [
+    "node",
+    "express",
+    "react",
+    "postgresql",
+    "drizzle",
+    "distributed-computing"
+  ],
+  "website": "https://gridlinkx.com",
+  "repository": "https://github.com/yourusername/gridlinkx",
+  "success_url": "/",
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment configuration",
+      "value": "production"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

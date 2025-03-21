@@ -66,3 +66,31 @@ npm run db:push
 - `DATABASE_URL`: PostgreSQL connection string (provided by Render)
 - `NODE_ENV`: Set to "production" for production environments
 - `PORT`: Port to run the server on (provided by Render)
+
+## Troubleshooting Render.com Deployment
+
+### Database Connection Issues
+- Ensure your DATABASE_URL is correctly set in Render's environment variables.
+- If using Neon database, ensure 'ws' websocket package is installed.
+- For non-Neon PostgreSQL (like Render's PostgreSQL), the standard connection should work.
+
+### Build Process Failures
+- Check build logs in Render dashboard for specific error messages.
+- Ensure your Node.js version is compatible (we use Node.js 20+).
+- If the build fails during package installation, try clearing the Render cache.
+
+### Application Not Starting
+- Check that the start command in render.yaml is correct (`npm run start`).
+- Verify that environment variables are properly set.
+- Check application logs in Render dashboard for startup errors.
+
+### Static Files Not Serving
+- Ensure the build process correctly generates all static assets.
+- Verify that the server is properly configured to serve static files in production mode.
+
+### Domain Configuration Issues
+- Ensure your DNS settings in Cloudflare are correctly pointing to your Render URL.
+- Check that your custom domain is properly set up in Render dashboard.
+- Verify SSL certificate generation is complete.
+
+For additional help, refer to [Render's documentation](https://render.com/docs) or contact support through your Render dashboard.
